@@ -6,5 +6,5 @@ var score = 0
 func add_point():
 	score += 1
 	print("score: ", score)
-	score_label.text = "You collected " + str(score) + " coins."
+	score_label.text = str(score) + " x coins :D"
  
