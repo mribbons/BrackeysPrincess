@@ -266,6 +266,7 @@ position = Vector2(289, -97)
 position = Vector2(632, -56)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platform2"]
+deterministic = true
 libraries = {
 "": SubResource("AnimationLibrary_wgfwj")
 }
@@ -305,8 +306,10 @@ offset_bottom = 360.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("8_mmhsa")
 theme_override_font_sizes/font_size = 8
-text = "Bad timing!
+text = "Platform needs
+fixing
 "
+horizontal_alignment = 1
 
 [node name="Player" parent="." instance=ExtResource("1_q40wp")]
 z_index = 5
