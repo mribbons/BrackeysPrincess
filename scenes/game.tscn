@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cmwmq2mbe76e3" path="res://scenes/kill_zone.tscn" id="5_uek08"]
 [ext_resource type="PackedScene" uid="uid://biped6lcv3akx" path="res://scenes/slime.tscn" id="6_rdk8j"]
 [ext_resource type="FontFile" uid="uid://c5qy2ieem0f3m" path="res://assets/fonts/PixelOperator8.ttf" id="8_mmhsa"]
-[ext_resource type="PackedScene" uid="uid://buivcue1gt1eh" path="res://scenes/touch_controls_2.tscn" id="10_r35l5"]
+[ext_resource type="PackedScene" uid="uid://buivcue1gt1eh" path="res://scenes/touch_controls.tscn" id="10_r35l5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5xbxk"]
 texture = ExtResource("2_2jdow")
@@ -334,4 +334,4 @@ limit_bottom = 425
 limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="TouchControls2" parent="Player" instance=ExtResource("10_r35l5")]
+[node name="TouchControls" parent="Player" instance=ExtResource("10_r35l5")]
