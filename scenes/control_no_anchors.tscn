@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbdfvdesapu35"]
+
+[ext_resource type="PackedScene" uid="uid://cx3yl7imfldit" path="res://scenes/touch_controls.tscn" id="1_32lgm"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+offset_left = -67.0
+offset_top = -189.0
+offset_right = 951.0
+offset_bottom = 52.0
+
+[node name="TouchControls" parent="." instance=ExtResource("1_32lgm")]
+follow_viewport_enabled = true
