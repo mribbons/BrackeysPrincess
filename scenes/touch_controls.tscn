@@ -24,6 +24,7 @@ transform = Transform2D(1.75, 0, 0, 1.75, 50, 500)
 texture_normal = ExtResource("1_mssty")
 passby_press = true
 action = "move_left"
+visibility_mode = 1
 
 [node name="Right" type="Control" parent="."]
 layout_mode = 3
@@ -43,6 +44,7 @@ transform = Transform2D(1.75, 0, 0, 1.75, 250, 500)
 texture_normal = ExtResource("2_x0ubv")
 passby_press = true
 action = "move_right"
+visibility_mode = 1
 
 [node name="Jump" type="Control" parent="."]
 layout_mode = 3
@@ -62,3 +64,4 @@ transform = Transform2D(1.75, 0, 0, 1.75, 1075, 500)
 texture_normal = ExtResource("3_enbjk")
 passby_press = true
 action = "jump"
+visibility_mode = 1
