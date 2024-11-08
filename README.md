@@ -1,7 +1,7 @@
 Brackey's Princess
 ==================
 
-### Godot Game
+![Complete SPEEDrun walkthrough, up to the second coin.](README.gif)
 
 My implementation of the tutorial Brackey's Godot tutorial:
 
@@ -18,4 +18,3 @@ Only tested on my android devices, scaling might be broken on other platforms.
 
 Had weird scaling issue when I embedded Label within Control, looks wrong in editor but right at runtime.
 
-![Complete SPEEDrun walkthrough, up to the second coin.](README.gif)
