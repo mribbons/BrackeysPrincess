@@ -1,18 +1,21 @@
 Brackey's Princess
 ==================
 
-My implementation of the tutorial from Brackey:
+### Godot Game
+
+My implementation of the tutorial Brackey's Godot tutorial:
 
 https://www.youtube.com/watch?v=LOhfqjmasi0
 
 Additional features:
 ====================
 
-## Mobile controls
+## Mobile Controls
 
 Only tested on my android devices, scaling might be broken on other platforms.
 
-## Coin count
+## Coin Count
 
 Had weird scaling issue when I embedded Label within Control, looks wrong in editor but right at runtime.
 
+![Complete SPEEDrun walkthrough, up to the second coin.](README.gif)
