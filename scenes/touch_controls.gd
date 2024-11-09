@@ -69,3 +69,12 @@ func _on_touch_screen_button_up_right_pressed() -> void:
 func _on_touch_screen_button_up_right_released() -> void:
 	Input.action_release("move_right")
 	Input.action_release("move_up_right")
+
+
+func _on_touch_screen_button_outer_circle_pressed() -> void:
+	print("vibrate")
+	Input.vibrate_handheld(300, 0.75)
+
+
+func _on_touch_screen_button_outer_circle_released() -> void:
+	pass # Replace with function body.

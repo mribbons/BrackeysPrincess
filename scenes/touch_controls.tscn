@@ -1,13 +1,40 @@
-[gd_scene load_steps=6 format=3 uid="uid://buivcue1gt1eh"]
+[gd_scene load_steps=7 format=3 uid="uid://buivcue1gt1eh"]
 
 [ext_resource type="Script" path="res://scenes/touch_controls.gd" id="1_02jte"]
 [ext_resource type="BitMap" uid="uid://c5f1iceg6aced" path="res://assets/sprites/controls/masks/right.png" id="2_ofr1h"]
+[ext_resource type="BitMap" uid="uid://cy1toj1xfueg6" path="res://assets/sprites/controls/masks/dpad_outer_circle.png" id="3_5ncxl"]
 [ext_resource type="Texture2D" uid="uid://yjokocx3xiie" path="res://assets/sprites/controls/shaded_a_dark.png" id="3_ey73u"]
 [ext_resource type="Texture2D" uid="uid://xpqhovnjpx5d" path="res://assets/sprites/controls/shaded_b_dark.png" id="4_6stek"]
 [ext_resource type="Texture2D" uid="uid://b40ew8tm0k6oc" path="res://assets/sprites/controls/circle_dpad_dark.png" id="4_v63qr"]
 
 [node name="TouchControls" type="Node2D"]
 script = ExtResource("1_02jte")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="CircleDPad" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(75, 425)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("4_v63qr")
+centered = false
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+
+[node name="TouchScreenButtonOuterCircle" type="TouchScreenButton" parent="Control/CanvasLayer"]
+position = Vector2(70, 425)
+scale = Vector2(1.75, 1.75)
+bitmask = ExtResource("3_5ncxl")
+passby_press = true
+visibility_mode = 1
 
 [node name="Button_A" type="Control" parent="."]
 layout_mode = 3
@@ -68,14 +95,6 @@ scale = Vector2(1.75, 1.75)
 bitmask = ExtResource("2_ofr1h")
 passby_press = true
 visibility_mode = 1
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="CircleDPad" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(75, 425)
-scale = Vector2(1.75, 1.75)
-texture = ExtResource("4_v63qr")
-centered = false
 
 [node name="DownRight" type="Control" parent="."]
 layout_mode = 3
@@ -210,6 +229,8 @@ bitmask = ExtResource("2_ofr1h")
 passby_press = true
 visibility_mode = 1
 
+[connection signal="pressed" from="Control/CanvasLayer/TouchScreenButtonOuterCircle" to="." method="_on_touch_screen_button_outer_circle_pressed"]
+[connection signal="released" from="Control/CanvasLayer/TouchScreenButtonOuterCircle" to="." method="_on_touch_screen_button_outer_circle_released"]
 [connection signal="pressed" from="Right/CanvasLayer/TouchScreenButtonRight" to="." method="_on_touch_screen_button_right_pressed"]
 [connection signal="released" from="Right/CanvasLayer/TouchScreenButtonRight" to="." method="_on_touch_screen_button_right_released"]
 [connection signal="pressed" from="DownRight/CanvasLayer/TouchScreenButtonDownRight" to="." method="_on_touch_screen_button_down_right_pressed"]
