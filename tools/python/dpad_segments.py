@@ -1,3 +1,7 @@
+"""
+In the end only 1 circle segment was required. We rotate the same segment as required for each button.
+"""
+
 import sys
 import cv2
 import numpy as np
