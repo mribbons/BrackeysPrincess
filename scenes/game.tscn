@@ -312,6 +312,7 @@ fixing
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Labels/Label2"]
+layout_mode = 0
 offset_left = -27.0
 offset_top = -57.0
 offset_right = 108.0

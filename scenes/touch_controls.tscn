@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://buivcue1gt1eh"]
+[gd_scene load_steps=6 format=3 uid="uid://buivcue1gt1eh"]
 
-[ext_resource type="Texture2D" uid="uid://c14fi2cqeivbv" path="res://assets/sprites/controls/left_dark.png" id="1_mssty"]
-[ext_resource type="Texture2D" uid="uid://bypjh0orhek8k" path="res://assets/sprites/controls/right_dark.png" id="2_x0ubv"]
-[ext_resource type="Texture2D" uid="uid://lva5sitm66r8" path="res://assets/sprites/controls/jump_dark.png" id="3_enbjk"]
+[ext_resource type="Script" path="res://scenes/touch_controls.gd" id="1_02jte"]
+[ext_resource type="BitMap" uid="uid://c5f1iceg6aced" path="res://assets/sprites/controls/masks/right.png" id="2_ofr1h"]
+[ext_resource type="Texture2D" uid="uid://yjokocx3xiie" path="res://assets/sprites/controls/shaded_a_dark.png" id="3_ey73u"]
+[ext_resource type="Texture2D" uid="uid://xpqhovnjpx5d" path="res://assets/sprites/controls/shaded_b_dark.png" id="4_6stek"]
+[ext_resource type="Texture2D" uid="uid://b40ew8tm0k6oc" path="res://assets/sprites/controls/circle_dpad_dark.png" id="4_v63qr"]
 
 [node name="TouchControls" type="Node2D"]
+script = ExtResource("1_02jte")
 
-[node name="Left" type="Control" parent="."]
+[node name="Button_A" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -15,15 +18,37 @@ offset_top = -40.0
 offset_right = 40.0
 grow_vertical = 0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Left"]
-offset = Vector2(50, 500)
+[node name="CanvasLayer" type="CanvasLayer" parent="Button_A"]
+offset = Vector2(1075, 500)
 scale = Vector2(1.75, 1.75)
-transform = Transform2D(1.75, 0, 0, 1.75, 50, 500)
+transform = Transform2D(1.75, 0, 0, 1.75, 1075, 500)
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="Left/CanvasLayer"]
-texture_normal = ExtResource("1_mssty")
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Button_A/CanvasLayer"]
+position = Vector2(-81.7142, 35.4286)
+texture_normal = ExtResource("3_ey73u")
 passby_press = true
-action = "move_left"
+action = "jump"
+visibility_mode = 1
+
+[node name="Button_B" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Button_B"]
+offset = Vector2(1075, 500)
+scale = Vector2(1.75, 1.75)
+transform = Transform2D(1.75, 0, 0, 1.75, 1075, 500)
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Button_B/CanvasLayer"]
+position = Vector2(-14.2857, -29.1429)
+texture_normal = ExtResource("4_6stek")
+passby_press = true
+action = "jump"
 visibility_mode = 1
 
 [node name="Right" type="Control" parent="."]
@@ -36,17 +61,23 @@ offset_right = 40.0
 grow_vertical = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Right"]
-offset = Vector2(250, 500)
-scale = Vector2(1.75, 1.75)
-transform = Transform2D(1.75, 0, 0, 1.75, 250, 500)
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="Right/CanvasLayer"]
-texture_normal = ExtResource("2_x0ubv")
+[node name="TouchScreenButtonRight" type="TouchScreenButton" parent="Right/CanvasLayer"]
+position = Vector2(75, 425)
+scale = Vector2(1.75, 1.75)
+bitmask = ExtResource("2_ofr1h")
 passby_press = true
-action = "move_right"
 visibility_mode = 1
 
-[node name="Jump" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CircleDPad" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(75, 425)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("4_v63qr")
+centered = false
+
+[node name="DownRight" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -55,13 +86,143 @@ offset_top = -40.0
 offset_right = 40.0
 grow_vertical = 0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Jump"]
-offset = Vector2(1075, 500)
-scale = Vector2(1.75, 1.75)
-transform = Transform2D(1.75, 0, 0, 1.75, 1075, 500)
+[node name="CanvasLayer" type="CanvasLayer" parent="DownRight"]
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="Jump/CanvasLayer"]
-texture_normal = ExtResource("3_enbjk")
+[node name="TouchScreenButtonDownRight" type="TouchScreenButton" parent="DownRight/CanvasLayer"]
+position = Vector2(215, 365)
+rotation = 0.785398
+scale = Vector2(1.75, 1.75)
+bitmask = ExtResource("2_ofr1h")
 passby_press = true
-action = "jump"
 visibility_mode = 1
+
+[node name="Down" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Down"]
+
+[node name="TouchScreenButtonDown" type="TouchScreenButton" parent="Down/CanvasLayer"]
+position = Vector2(355, 425)
+rotation = 1.5708
+scale = Vector2(1.75, 1.75)
+bitmask = ExtResource("2_ofr1h")
+passby_press = true
+visibility_mode = 1
+
+[node name="DownLeft" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="DownLeft"]
+
+[node name="TouchScreenButtonDownLeft" type="TouchScreenButton" parent="DownLeft/CanvasLayer"]
+position = Vector2(415, 565)
+rotation = 2.35619
+scale = Vector2(1.75, 1.75)
+bitmask = ExtResource("2_ofr1h")
+passby_press = true
+visibility_mode = 1
+
+[node name="Left" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Left"]
+
+[node name="TouchScreenButtonLeft" type="TouchScreenButton" parent="Left/CanvasLayer"]
+position = Vector2(355, 705)
+rotation = 3.14159
+scale = Vector2(1.75, 1.75)
+bitmask = ExtResource("2_ofr1h")
+passby_press = true
+visibility_mode = 1
+
+[node name="UpLeft" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="UpLeft"]
+
+[node name="TouchScreenButtonUpLeft" type="TouchScreenButton" parent="UpLeft/CanvasLayer"]
+position = Vector2(215, 765)
+rotation = 3.92699
+scale = Vector2(1.75, 1.75)
+bitmask = ExtResource("2_ofr1h")
+passby_press = true
+visibility_mode = 1
+
+[node name="Up" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Up"]
+
+[node name="TouchScreenButtonUp" type="TouchScreenButton" parent="Up/CanvasLayer"]
+position = Vector2(75, 705)
+rotation = 4.71239
+scale = Vector2(1.75, 1.75)
+bitmask = ExtResource("2_ofr1h")
+passby_press = true
+visibility_mode = 1
+
+[node name="UpRight" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="UpRight"]
+
+[node name="TouchScreenButtonUpRight" type="TouchScreenButton" parent="UpRight/CanvasLayer"]
+position = Vector2(15, 565)
+rotation = 5.49779
+scale = Vector2(1.75, 1.75)
+bitmask = ExtResource("2_ofr1h")
+passby_press = true
+visibility_mode = 1
+
+[connection signal="pressed" from="Right/CanvasLayer/TouchScreenButtonRight" to="." method="_on_touch_screen_button_right_pressed"]
+[connection signal="released" from="Right/CanvasLayer/TouchScreenButtonRight" to="." method="_on_touch_screen_button_right_released"]
+[connection signal="pressed" from="DownRight/CanvasLayer/TouchScreenButtonDownRight" to="." method="_on_touch_screen_button_down_right_pressed"]
+[connection signal="released" from="DownRight/CanvasLayer/TouchScreenButtonDownRight" to="." method="_on_touch_screen_button_down_right_released"]
+[connection signal="pressed" from="Down/CanvasLayer/TouchScreenButtonDown" to="." method="_on_touch_screen_button_down_pressed"]
+[connection signal="released" from="Down/CanvasLayer/TouchScreenButtonDown" to="." method="_on_touch_screen_button_down_released"]
+[connection signal="pressed" from="DownLeft/CanvasLayer/TouchScreenButtonDownLeft" to="." method="_on_touch_screen_button_down_left_pressed"]
+[connection signal="released" from="DownLeft/CanvasLayer/TouchScreenButtonDownLeft" to="." method="_on_touch_screen_button_down_left_released"]
+[connection signal="pressed" from="Left/CanvasLayer/TouchScreenButtonLeft" to="." method="_on_touch_screen_button_left_pressed"]
+[connection signal="released" from="Left/CanvasLayer/TouchScreenButtonLeft" to="." method="_on_touch_screen_button_left_released"]
+[connection signal="pressed" from="UpLeft/CanvasLayer/TouchScreenButtonUpLeft" to="." method="_on_touch_screen_button_up_left_pressed"]
+[connection signal="released" from="UpLeft/CanvasLayer/TouchScreenButtonUpLeft" to="." method="_on_touch_screen_button_up_left_released"]
+[connection signal="pressed" from="Up/CanvasLayer/TouchScreenButtonUp" to="." method="_on_touch_screen_button_up_pressed"]
+[connection signal="released" from="Up/CanvasLayer/TouchScreenButtonUp" to="." method="_on_touch_screen_button_up_released"]
+[connection signal="pressed" from="UpRight/CanvasLayer/TouchScreenButtonUpRight" to="." method="_on_touch_screen_button_up_right_pressed"]
+[connection signal="released" from="UpRight/CanvasLayer/TouchScreenButtonUpRight" to="." method="_on_touch_screen_button_up_right_released"]
