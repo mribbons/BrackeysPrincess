@@ -58,7 +58,7 @@ transform = Transform2D(1.75, 0, 0, 1.75, 1075, 500)
 position = Vector2(-81.7142, 35.4286)
 texture_normal = ExtResource("3_ey73u")
 passby_press = true
-action = "jump"
+action = "fire"
 visibility_mode = 1
 
 [node name="Button_B" type="Control" parent="."]
