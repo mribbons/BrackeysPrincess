@@ -40,7 +40,6 @@ func handle_dpad_press(pressed_directions: Array[int]) -> void:
 	for direction in pressed_directions:
 		press_counts[direction] += 1
 		Input.action_press(directions[direction])
-		print("press: ", directions[direction], ": " , press_counts[direction])
 
 func handle_dpad_release(released_directions: Array[int]) -> void:
 	dpad_down_count -= 1
@@ -54,7 +53,6 @@ func handle_dpad_release(released_directions: Array[int]) -> void:
 			press_counts[direction] = 0
 		if press_counts[direction] < 1:
 			Input.action_release(directions[direction])
-			print("release: ", directions[direction], ": " , press_counts[direction])
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://c5f1iceg6aced"
+path="res://.godot/imported/right.png-465e3596ab42ddb4557f45ace12f3b7f.res"
+
+[deps]
+
+source_file="res://addons/touch_controls/assets/masks/right.png"
+dest_files=["res://.godot/imported/right.png-465e3596ab42ddb4557f45ace12f3b7f.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

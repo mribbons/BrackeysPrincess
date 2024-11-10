@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lva5sitm66r8"
-path="res://.godot/imported/jump_dark.png-ea7559b747f60b119554f46cff1cfd9e.ctex"
+uid="uid://pg44hhrkfmn7"
+path="res://.godot/imported/shoot_dark.png-5faa234db630800e234a73f829954747.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/controls/jump_dark.png"
-dest_files=["res://.godot/imported/jump_dark.png-ea7559b747f60b119554f46cff1cfd9e.ctex"]
+source_file="res://addons/touch_controls/assets/shoot_dark.png"
+dest_files=["res://.godot/imported/shoot_dark.png-5faa234db630800e234a73f829954747.ctex"]
 
 [params]
 

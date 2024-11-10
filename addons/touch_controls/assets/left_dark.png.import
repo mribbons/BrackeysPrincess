@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yjokocx3xiie"
-path="res://.godot/imported/shaded_a_dark.png-d18a13d0e82d12d96dbc8f23ddff5471.ctex"
+uid="uid://c14fi2cqeivbv"
+path="res://.godot/imported/left_dark.png-b882685ee3ccc5a00f4f9911a53cecc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/controls/shaded_a_dark.png"
-dest_files=["res://.godot/imported/shaded_a_dark.png-d18a13d0e82d12d96dbc8f23ddff5471.ctex"]
+source_file="res://addons/touch_controls/assets/left_dark.png"
+dest_files=["res://.godot/imported/left_dark.png-b882685ee3ccc5a00f4f9911a53cecc7.ctex"]
 
 [params]
 

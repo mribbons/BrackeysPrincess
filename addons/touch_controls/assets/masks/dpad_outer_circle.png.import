@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://cy1toj1xfueg6"
+path="res://.godot/imported/dpad_outer_circle.png-65281152fe65d1b1a2add0be2de3849d.res"
+
+[deps]
+
+source_file="res://addons/touch_controls/assets/masks/dpad_outer_circle.png"
+dest_files=["res://.godot/imported/dpad_outer_circle.png-65281152fe65d1b1a2add0be2de3849d.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

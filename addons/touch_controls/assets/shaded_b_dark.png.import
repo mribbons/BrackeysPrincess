@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b40ew8tm0k6oc"
-path="res://.godot/imported/circle_dpad_dark.png-85eeb498dfcd19ca2be777be2b5b314d.ctex"
+uid="uid://xpqhovnjpx5d"
+path="res://.godot/imported/shaded_b_dark.png-99ee3b778f630da2f2696bef36b4b91e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/controls/circle_dpad_dark.png"
-dest_files=["res://.godot/imported/circle_dpad_dark.png-85eeb498dfcd19ca2be777be2b5b314d.ctex"]
+source_file="res://addons/touch_controls/assets/shaded_b_dark.png"
+dest_files=["res://.godot/imported/shaded_b_dark.png-99ee3b778f630da2f2696bef36b4b91e.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://o4auk3h2emrs"
-path="res://.godot/imported/right.bmp-1f7a95fce02230bcd4cac85457ea14ef.ctex"
+path="res://.godot/imported/right.bmp-a4610ce2a9a8cd1dc3c4dd72b0df27c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/controls/masks/right.bmp"
-dest_files=["res://.godot/imported/right.bmp-1f7a95fce02230bcd4cac85457ea14ef.ctex"]
+source_file="res://addons/touch_controls/assets/masks/right.bmp"
+dest_files=["res://.godot/imported/right.bmp-a4610ce2a9a8cd1dc3c4dd72b0df27c7.ctex"]
 
 [params]
 
