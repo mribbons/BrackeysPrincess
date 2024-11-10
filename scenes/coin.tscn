@@ -211,6 +211,7 @@ shape = SubResource("CircleShape2D_ch3sy")
 
 [node name="PickUpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_5xlmq")
+volume_db = -4.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

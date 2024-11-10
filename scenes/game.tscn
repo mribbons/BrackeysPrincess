@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://y66t727l730x"]
+[gd_scene load_steps=18 format=3 uid="uid://y66t727l730x"]
 
 [ext_resource type="PackedScene" uid="uid://bj8q3nxltkfcq" path="res://scenes/player.tscn" id="1_q40wp"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_tr66g"]
 [ext_resource type="Texture2D" uid="uid://cnot2viiyvorj" path="res://assets/sprites/world_tileset.png" id="2_2jdow"]
 [ext_resource type="FontFile" uid="uid://cusyh0cklnbv4" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_bya0o"]
+[ext_resource type="AudioStream" uid="uid://bu5hnsyhxgyt6" path="res://assets/sounds/die_wahwahwav.wav" id="2_pmjjw"]
 [ext_resource type="PackedScene" uid="uid://1ip7lnfpytqf" path="res://scenes/platform.tscn" id="3_yipet"]
 [ext_resource type="PackedScene" uid="uid://lxhljvygyjs6" path="res://scenes/coin.tscn" id="4_ha7sx"]
 [ext_resource type="PackedScene" uid="uid://cmwmq2mbe76e3" path="res://scenes/kill_zone.tscn" id="5_uek08"]
@@ -220,9 +221,15 @@ _data = {
 [node name="Game" type="Node2D"]
 position = Vector2(193, 353)
 
-[node name="GameManager" type="Node" parent="."]
+[node name="GameManager" type="Node" parent="." groups=["GameManager"]]
 unique_name_in_owner = true
 script = ExtResource("1_tr66g")
+
+[node name="Sounds" type="Node" parent="GameManager"]
+
+[node name="PlayerDieSound" type="AudioStreamPlayer2D" parent="GameManager/Sounds"]
+stream = ExtResource("2_pmjjw")
+volume_db = 6.0
 
 [node name="Coins" type="Node" parent="."]
 
