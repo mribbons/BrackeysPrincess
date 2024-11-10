@@ -6,18 +6,55 @@ extends Node2D
 
 var dpad_down_count: int = 0
 
-func handle_dpad_press() -> void:
+const MOVE_RIGHT			= 0
+const MOVE_DOWN_RIGHT	= 1
+const MOVE_DOWN			= 2
+const MOVE_DOWN_LEFT 	= 3
+const MOVE_LEFT 			= 4
+const MOVE_UP_LEFT 		= 5
+const MOVE_UP 			= 6
+const MOVE_UP_RIGHT 		= 7
+
+var directions = Array([
+	"move_right", 
+	"move_down_right", 
+	"move_down", 
+	"move_down_left", 
+	"move_left", 
+	"move_up_left", 
+	"move_up", 
+	"move_up_right"
+])
+
+var press_counts = Array([
+	0, 0, 0, 0, 0, 0, 0, 0
+])
+
+
+func handle_dpad_press(pressed_directions: Array[int]) -> void:
 	if dpad_down_count == 0:
 		sound_dpad_press.play()
 		
-	dpad_down_count = dpad_down_count + 1
+	dpad_down_count += 1
+	
+	for direction in pressed_directions:
+		press_counts[direction] += 1
+		Input.action_press(directions[direction])
+		print("press: ", directions[direction], ": " , press_counts[direction])
 
-func handle_dpad_release() -> void:
-	dpad_down_count = dpad_down_count - 1
+func handle_dpad_release(released_directions: Array[int]) -> void:
+	dpad_down_count -= 1
 	
 	if dpad_down_count < 1:
 		sound_dpad_release.play()
-
+		
+	for direction in released_directions:
+		press_counts[direction] -= 1
+		if press_counts[direction] < 0:
+			press_counts[direction] = 0
+		if press_counts[direction] < 1:
+			Input.action_release(directions[direction])
+			print("release: ", directions[direction], ": " , press_counts[direction])
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,80 +66,55 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_touch_screen_button_right_pressed() -> void:
-	Input.action_press("move_right")
-	handle_dpad_press()
+	handle_dpad_press([MOVE_RIGHT])
 
 func _on_touch_screen_button_right_released() -> void:
-	Input.action_release("move_right")
-	handle_dpad_release()
+	handle_dpad_release([MOVE_RIGHT])
 
 func _on_touch_screen_button_down_right_pressed() -> void:
-	Input.action_press("move_right")
-	Input.action_press("move_down_right")
-	handle_dpad_press()
+	handle_dpad_press([MOVE_RIGHT, MOVE_DOWN_RIGHT])
 
 func _on_touch_screen_button_down_right_released() -> void:
-	Input.action_release("move_right")
-	Input.action_release("move_down_right")
-	handle_dpad_release()
+	handle_dpad_release([MOVE_RIGHT, MOVE_DOWN_RIGHT])
 
 func _on_touch_screen_button_down_pressed() -> void:
-	Input.action_press("move_down")
-	handle_dpad_press()
+	handle_dpad_press([MOVE_DOWN])
 
 func _on_touch_screen_button_down_released() -> void:
-	Input.action_release("move_down")
-	handle_dpad_release()
+	handle_dpad_release([MOVE_RIGHT])
 
 func _on_touch_screen_button_down_left_pressed() -> void:
-	Input.action_press("move_left")
-	Input.action_press("move_down_left")
-	handle_dpad_press()
+	handle_dpad_press([MOVE_LEFT, MOVE_DOWN_LEFT])
 
 
 func _on_touch_screen_button_down_left_released() -> void:
-	Input.action_release("move_left")
-	Input.action_release("move_down_left")
-	handle_dpad_release()
+	handle_dpad_release([MOVE_LEFT, MOVE_DOWN_LEFT])
 
 
 func _on_touch_screen_button_left_pressed() -> void:
-	Input.action_press("move_left")
-	handle_dpad_press()
+	handle_dpad_press([MOVE_LEFT])
 
 func _on_touch_screen_button_left_released() -> void:
-	Input.action_release("move_left")
-	handle_dpad_release()
+	handle_dpad_release([MOVE_LEFT])
 
 
 func _on_touch_screen_button_up_left_pressed() -> void:
-	Input.action_press("move_up_left")
-	Input.action_press("move_left")
-	handle_dpad_press()
+	handle_dpad_press([MOVE_UP_LEFT, MOVE_LEFT])
 
 func _on_touch_screen_button_up_left_released() -> void:
-	Input.action_release("move_up_left")
-	Input.action_release("move_left")
-	handle_dpad_release()
+	handle_dpad_release([MOVE_UP_LEFT, MOVE_LEFT])
 
 func _on_touch_screen_button_up_pressed() -> void:
-	Input.action_press("move_up")
-	handle_dpad_press()
+	handle_dpad_press([MOVE_UP])
 
 func _on_touch_screen_button_up_released() -> void:
-	Input.action_release("move_up")
-	handle_dpad_release()
+	handle_dpad_release([MOVE_UP])
 
 func _on_touch_screen_button_up_right_pressed() -> void:
-	Input.action_press("move_up_right")
-	Input.action_press("move_right")
-	handle_dpad_press()
+	handle_dpad_press([MOVE_UP_RIGHT, MOVE_RIGHT])
 
 func _on_touch_screen_button_up_right_released() -> void:
-	Input.action_release("move_right")
-	Input.action_release("move_up_right")
-	handle_dpad_release()
-
+	handle_dpad_release([MOVE_UP_RIGHT, MOVE_RIGHT])
 
 func _on_touch_screen_button_outer_circle_pressed() -> void:
 	Input.vibrate_handheld(300, 0.75)
