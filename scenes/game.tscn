@@ -221,9 +221,10 @@ _data = {
 [node name="Game" type="Node2D"]
 position = Vector2(193, 353)
 
-[node name="GameManager" type="Node" parent="." groups=["GameManager"]]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("player") groups=["GameManager"]]
 unique_name_in_owner = true
 script = ExtResource("1_tr66g")
+player = NodePath("../Player")
 
 [node name="Sounds" type="Node" parent="GameManager"]
 
@@ -292,6 +293,15 @@ position = Vector2(766, -29)
 
 [node name="Slime" parent="." instance=ExtResource("6_rdk8j")]
 position = Vector2(172, -62)
+
+[node name="Slime2" parent="." instance=ExtResource("6_rdk8j")]
+position = Vector2(116, -62)
+
+[node name="Slime3" parent="." instance=ExtResource("6_rdk8j")]
+position = Vector2(133, -62)
+
+[node name="Slime4" parent="." instance=ExtResource("6_rdk8j")]
+position = Vector2(152, -62)
 
 [node name="Labels" type="Node" parent="."]
 

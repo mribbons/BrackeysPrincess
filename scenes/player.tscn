@@ -1,8 +1,14 @@
-[gd_scene load_steps=28 format=3 uid="uid://bj8q3nxltkfcq"]
+[gd_scene load_steps=29 format=3 uid="uid://bj8q3nxltkfcq"]
 
 [ext_resource type="Texture2D" uid="uid://cidhdmhbc84uo" path="res://assets/sprites/knight.png" id="1_478yp"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_uuu6r"]
 [ext_resource type="AudioStream" uid="uid://n3dhd4yacxua" path="res://assets/sounds/jump2.wav" id="3_ekan6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cmgmm"]
+radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls1vv"]
+size = Vector2(6, 3)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fyxdn"]
 atlas = ExtResource("1_478yp")
@@ -95,12 +101,12 @@ region = Rect2(224, 96, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_ukclk"]
 animations = [{
 "frames": [{
-"duration": 40.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_fyxdn")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -181,18 +187,11 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cmgmm"]
-radius = 5.0
-
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_uuu6r")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_ukclk")
-animation = &"jump"
-autoplay = "idle"
-frame_progress = 0.90653
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
@@ -200,3 +199,22 @@ shape = SubResource("CircleShape2D_cmgmm")
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ekan6")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="SwordHit" type="Area2D" parent="Node2D" groups=["player_weapon"]]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/SwordHit" groups=["player_weapon"]]
+position = Vector2(10, 6.5)
+shape = SubResource("RectangleShape2D_ls1vv")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+sprite_frames = SubResource("SpriteFrames_ukclk")
+animation = &"attack"
+autoplay = "idle"
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="area_entered" from="Node2D/SwordHit" to="." method="_on_sword_hit_area_entered"]
+[connection signal="animation_finished" from="Node2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
